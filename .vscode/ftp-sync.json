@@ -1,0 +1,28 @@
+{
+    "remotePath": "./xampp/htdocs",
+    "host": "192.168.10.52",
+    "username": "emtusa",
+    "password": "Scania5321",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": true,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": "./",
+        "uploadOnSave": true
+    }
+}

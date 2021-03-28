@@ -1,0 +1,46 @@
+/**
+ * funcionesEmtusa
+ * ------------------
+ * Aquí se listarán las distintas funciones de JS
+ * que se necesitarán para el correcto funcionamiento.
+ */
+
+     function mostratTextoUnidadTiempo() {
+        switch ($('#selectUnidadTiempo').val()) {
+            case '0':
+            case '1':
+            case '2':
+                $('#Calendario').css({
+                    'visibility': 'hidden'
+                });
+                break;
+            default:
+                $('#Calendario').css({
+                    'visibility': 'visible'
+                });
+
+                $('')
+                break;
+        }
+    }
+
+    function mostrarTextoMotivoPeticion() {
+        switch ($('#selectMotivoPeticion').val()) {
+            case "1":
+            case "5":
+                $('#inputMotivoLicencia').css({
+                    'display': 'block'
+                });
+                break;
+            default:
+                $('#inputMotivoLicencia').css({
+                    'display': 'none'
+                });
+                break;
+        }
+    }
+
+    $(function() {
+        //Date range picker
+        $('#inputFecha').daterangepicker()
+    })

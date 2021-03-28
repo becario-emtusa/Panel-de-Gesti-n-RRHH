@@ -1,0 +1,7 @@
+li>a>i {
+    padding: 0rem 0.5rem;
+}
+
+li>a:hover {
+    color: rgb(50, 50, 50);
+}

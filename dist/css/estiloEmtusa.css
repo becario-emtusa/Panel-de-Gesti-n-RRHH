@@ -1,0 +1,436 @@
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --emtusa-blue: #00a3f6;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /* Variables */
+    --logo-max-size: 150px;
+    --logo-padding-top: 0.85rem;
+    --logo-height: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    padding: 1rem 0rem;
+}
+
+.section-emtusa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: var(--emtusa-blue);
+}
+
+.logo-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.logo-emtusa {
+    max-width: var(--logo-max-size);
+    height: var(--logo-height);
+}
+
+.burguer {
+    display: none;
+    cursor: pointer;
+}
+
+.burguer div {
+    width: 25px;
+    height: 2px;
+    background-color: rgb(225,225,225);
+    border-radius: 4px;
+    margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .logo-1, .logo-2, .section-emtusa {
+        z-index: 3;
+    }
+
+    .nav-links {
+        position: absolute;
+        flex-direction: column;
+        top: 50px;
+        background: var(--emtusa-blue);
+        width: 100% !important;
+        transform: translateY(-150%);
+        transition: transform 0.5s ease-in;
+        z-index: -1;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burguer {
+        display: block;
+        padding: 0rem 1rem;
+    }
+}
+
+.nav-active {
+    transform: translateY(-10%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    } to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes h1FadeIn {
+    from {
+        padding-top: 10px;
+    } to {
+        padding-top: 100px;
+    }
+}
+@keyframes h1FadeOut {
+    from {
+        padding-top: 100px;
+    } to {
+        padding-top: 10px;
+    }
+}
+
+.toggle .line1 {
+    background: rgb(69,69,69);
+}
+.toggle .line2 {
+    background: rgb(69,69,69);
+}
+.toggle .line3 {
+    background: rgb(69,69,69);
+}
+
+.logo-ayuntamiento {
+    max-width: var(--logo-max-size);
+    height: var(--logo-height);
+    flex: 3;
+    padding: 0rem 1rem 0rem 0rem;
+}
+
+.nav-links {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+}
+
+.nav-links li {
+    padding: 0rem 0.5rem 0rem 0.5rem;
+}
+
+.nav-links li a {
+    font-size: 14px;
+    font-weight: ligther;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link {
+    padding: 0.5rem 0.5rem;
+}
+
+div>a>img {
+    width: 120px;
+}
+
+/* End css Nav */
+
+footer {
+    overflow: hidden;
+    clear: both;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 2rem;
+    flex-shrink: 0;
+}
+.card {
+    position: initial;
+    left: 0%;
+}
+
+.card-header {
+    background: var(--emtusa-blue) !important;
+}
+
+#titulo {
+    padding-top: 1rem;
+    text-shadow: 0px 0px 6px rgb(230, 230, 230);
+
+}
+
+#imgPortada {
+    border: 4px solid #ddd;
+    border-radius: 4px;  
+    width: 50vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 576px) {
+    #titulo {
+        padding-top: 2.5rem;
+        padding-bottom: 5rem;
+    }
+    
+    #imgPortada {
+        border: 4px solid #ddd;
+        border-radius: 4px;
+        display: block;
+        max-height: 25vh;
+        width: auto;
+        height: auto;
+      
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }    
+}
+
+.tarjetaOculto {
+    visibility: hidden;
+    display: none;
+}
+
+#div-tarjetas {
+    width: 500px !important;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --size-logo: 120px;
+        --padding-left: 0.5rem;
+        --pading-top: 0.75rem;
+    }
+
+    .logo-emtusa {
+        padding-top: var(--padding-top);
+        padding-left: var(--padding-left);
+        max-width: var(--size-logo);
+        height: auto;
+    }
+
+    .logo-ayuntamiento {
+        padding-left: var(--padding-left);
+        max-width: var(--size-logo);
+        height: auto;
+    }
+
+    #div-tarjetas {
+        width: 400px !important;
+    }
+}
+
+.content-header {
+    padding: 0.5rem 0.5rem;
+}
+
+.botonOculto {
+    visibility: hidden;
+    display: none;
+}
+
+.oculto {
+    visibility: hidden;
+    display: none;
+}
+
+.tarjetaVisible {
+    visibility: initial !important;
+    display: inherit !important;
+}
+
+.diaLibre {
+    background-color: #28a745;
+}
+
+.diaConSolicitudes {
+    background-color: #ffc107;
+}
+
+.diaOcupado {
+    background-color: #dc3545;
+}
+
+.diaPedido {
+    background-color: var(--emtusa-blue);
+}
+
+.botonMenu {
+    width: 100%;
+}
+
+.botonEnviar {
+    background: var(--emtusa-blue);
+    color: white;
+    border: 0;
+    margin-bottom: 20px !important;
+    width: 150px;
+}
+
+.botonEnviar:hover {
+    background: var(--emtusa-blue);
+    color: rgb(50, 50, 50);
+}
+
+@media (max-width: 576px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+
+    #divBotonEnviar {
+        padding-bottom: 120px;
+    }
+
+    .botonEnviar {
+        width: 50vw !important;    
+    }
+}
+
+#divFooter {
+    position: relative;
+    color: white;
+    background-color: var(--emtusa-blue);
+    font-size: 12px;
+    text-align: center;
+    font-weight: 400;
+    padding: 0.75rem 1.25rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom: 0 solid rgba(0, 0, 0, 0.125);
+    height: 50px;
+    padding-top: 8px;
+}
+
+#inputMotivoLicencia,
+#inputDuracion {
+    visibility: hidden;
+    display: none;
+}
+
+#divCalendario {
+    display: none;
+    visibility: hidden;
+}
+
+#divNumerico {
+    display: none;
+    visibility: hidden;
+}
+
+#Contenedor_Duracion {
+    max-height: 160px;
+}
+
+#Contenedor_Motivo {
+    max-height: 160px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+  /* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15vw auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90vw; /* Could be more or less, depending on screen size */
+}
+
+.modal-content p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* The Close Button */
+.close {
+    margin: 0 auto;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

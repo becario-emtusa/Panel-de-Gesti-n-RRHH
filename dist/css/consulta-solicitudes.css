@@ -1,0 +1,246 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 75vh;
+}
+
+main div {
+    padding-bottom: 1rem;
+}
+
+.tarjeta {
+    min-width: 20%;
+}
+
+input[type="text"] {
+    text-align: center;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.contenido label {
+    margin: 0;
+    padding: 0rem 0.5rem;
+}
+
+thead {
+    background: var(--emtusa-blue);
+}
+
+li>i {
+    transform: scale(1.2);
+}
+
+.cuerpo {
+    background: white;
+    padding: 0.5rem 0.5rem;
+    border: 0;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0px 0px 6px #696969;
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding: 1rem 0rem;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-tabla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.leyenda {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0px 0px 6px rgb(69, 69, 69);
+    background: white;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.leyenda div {
+    font-size: 12px;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    font-weight: bold;
+    background: var(--emtusa-blue);
+    border-radius: 6px 6px 0px 0px;
+    color: white;
+    text-shadow: 0px 0px 6px rgb(69, 69, 69);
+}
+
+.leyenda ul {
+    padding: 1rem 1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    font-size: 14px;
+}
+
+.leyenda li {
+    font-size: 12px;
+    padding: 0rem 0.5rem;
+}
+
+.leyenda i {
+    padding: 0rem 0.5rem;
+    color: black;
+}
+
+#pendiente {
+    color: rgb(255, 187, 0);
+    font-weight: bolder;
+}
+
+#aceptada {
+    color: rgb(115, 255, 115);
+    font-weight: bolder;
+}
+
+#denegada {
+    color: rgb(255, 81, 81);
+    font-weight: bolder;
+}
+
+input[type="checkbox"] {
+    border-radius: 6px 6px 6px 6px;
+}
+
+.solicitudes {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 0.5rem 0.5rem;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0px 0px 6px rgb(69,69,69);
+}
+
+#cuerpoTabla {
+    font-family: 'Roboto-Mono', monospace;
+}
+
+th {
+    text-align: center;
+    padding: 0rem 1rem;
+}
+
+tr {
+    text-align: center;
+}
+
+#texto-mensaje {
+    color: rgb(255, 81, 81);
+}
+
+.aviso_popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+  /* Modal Content/Box */
+.modal-content {
+    display: flex;
+    justify-content: center;
+    background-color: #fefefe;
+    margin: 200px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px; /* Could be more or less, depending on screen size */
+}
+
+.modal-content div {
+    display: inline-block;
+    padding-bottom: 0;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.modal-content>div>button {
+    border-radius: 6px 6px 6px 6px;
+    width: 30%;
+    margin: 0rem 1rem;
+    border: 0;
+    box-shadow: 0px 0px 6px rgb(69,69,69);
+}
+
+.continuar {
+    background: rgb(255, 60, 60);
+}
+
+.continuar:hover {
+    background: var(--emtusa-blue);
+}
+
+.cancelar {
+    background: rgb(115, 255, 115);
+}
+
+.cancelar:hover {
+    background: var(--emtusa-blue);
+}
+
+.modal-content p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+/* Responsive config */
+@media screen and (max-width: 768px) {
+    .solicitudes {
+        width: 400px;
+    }
+    #pc {
+        display: none;
+        visibility: hidden;
+    }
+
+    thead {
+        font-size: 13px;
+    }
+
+    tbody {
+        font-size: 12px;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(0.8);
+    }
+}
