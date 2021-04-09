@@ -15,8 +15,5 @@
             <div class="line2"></div>
             <div class="line3"></div>
         </div>
-        <div class="logo-2">
-            <img class="logo-ayuntamiento" src="/images/ayuntamiento-huelva-logo-cab.png" alt="logoAyuntamiento.png">
-        </div>
     </nav>
 </section>

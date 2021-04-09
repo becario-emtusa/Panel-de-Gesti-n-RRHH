@@ -9,6 +9,7 @@
 function representar_tabla(data) {
     var div = document.querySelector('.solicitudes');
     var leyenda = document.querySelector('.leyenda');
+    var aviso_solicitud = document.querySelector('.aviso-solicitud');
 
     div.innerHTML = '';
 
@@ -19,6 +20,10 @@ function representar_tabla(data) {
     leyenda.style.height = '100px';
     leyenda.style.opacity = '100%';
     leyenda.style.overflow = 'initial';
+
+    aviso_solicitud.style.height = 'initial';
+    aviso_solicitud.style.opacity = '100%';
+    aviso_solicitud.style.overflow = 'initial';
 
     if (div.childNodes.length <= 1) {
         var tabla = document.createElement('table');
@@ -167,7 +172,7 @@ function mostrar_aviso_anulacion() {
     for (let input of fila_anular) {
         if (input.checked) {
             /* Texto a mostrar */
-            document.getElementById('textoModal').innerHTML = `<span id="texto-mensaje">Atención:</span><br> Se va a proceder a anular la solicitud ${input.value}.`;
+            document.getElementById('textoModal').innerHTML = `<span id="texto-mensaje">Atención:</span><br> Se va a proceder a anular la solicitud ${input.value}.<br><br>Si cancela la petición, no podrá volver a solicitar el día posteriormente.`;
 
             /* Ponemos visible el popup */
             aviso.style.display = "block";

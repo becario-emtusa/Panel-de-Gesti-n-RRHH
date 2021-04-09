@@ -338,7 +338,7 @@ footer {
     color: rgb(50, 50, 50);
 }
 
-@media (max-width: 576px) {
+@media (max-width: 1366px) {
     footer {
         position: fixed;
         bottom: 0;
@@ -349,7 +349,7 @@ footer {
     }
 
     .botonEnviar {
-        width: 50vw !important;    
+        width: 150px !important;    
     }
 }
 

@@ -43,10 +43,14 @@ include './fragmentos/cabecera.php';
                 </ul>
             </div>
 
+
             <div class="solicitudes">
 
             </div>
 
+            <div class="aviso-solicitud">
+                <p>Puede revisar su solicitud desde las 00:00 Horas<br>del día siguiente de la petición.</p>
+            </div>
         </div>
 
         <div class="aviso_popup">
