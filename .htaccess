@@ -8,5 +8,6 @@ RewriteRule ^inicio$ index.php
 RewriteRule ^solicitudes$ solicitudes.php
 RewriteRule ^consultar-solicitudes$ consulta-solicitudes.php
 RewriteRule ^admin/modificar-dias$ admin-config.php
+RewriteRule ^admin/crear-solicitudes$ admin-solicitudes.php
 #RewriteRule ^/$ prueba.php
 #RewriteRule ^(.*)$ index.php

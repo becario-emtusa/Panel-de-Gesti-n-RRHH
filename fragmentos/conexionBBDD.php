@@ -55,10 +55,10 @@ class conexionBBDD
     }
 
     /* Función que devuelve el calendario de un usuario dado su DNI y el tipo de licencia solicitada */
-    public function getCalendarioUsuario($DNI, $tipoLicencia)
+    public function getCalendarioUsuario($DNI, $tipoLicencia, $administracion = 0)
     {
         /* Consulta */
-        $consulta = "exec PrgCalendarioLaboral '" . $DNI . "','" . $tipoLicencia . "'";
+        $consulta = "exec PrgCalendarioLaboral '" . $DNI . "','" . $tipoLicencia . "', '" . $administracion . "'";
         $this->statement = $this->ejecutarConsulta($consulta);
 
         return $this->statement;
@@ -131,6 +131,15 @@ class conexionBBDD
     {
         /* Consulta */
         $consulta = "set nocount on; exec PrgSolicitud '" . $DNI . "', " . $tipoLicencia . " , '" . $fechaIni . "', '" . $fechaFin . "'";
+        $this->statement = $this->ejecutarConsulta($consulta, $tipoObjeto);
+
+        return $this->statement;
+    }
+
+    public function insertarPeticionAdmin($DNI, $tipoLicencia, $fechaIni, $fechaFin, $tipoObjeto = PDO::FETCH_OBJ)
+    {
+        /* Consulta */
+        $consulta = "set nocount on; exec PrgSolicitud '" . $DNI . "', " . $tipoLicencia . " , '" . $fechaIni . "', '" . $fechaFin . "'" . ", 1";
         $this->statement = $this->ejecutarConsulta($consulta, $tipoObjeto);
 
         return $this->statement;

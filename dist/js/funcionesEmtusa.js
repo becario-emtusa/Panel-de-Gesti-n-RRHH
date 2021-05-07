@@ -111,7 +111,7 @@ function consultaDNI() {
             {
                 type: "POST",
                 data: dataString,
-                url: './fragmentos/getDatos.php',
+                url: '/fragmentos/getDatos.php',
                 success: function (data) {
                     var json_obj = JSON.parse(data);
 
@@ -148,7 +148,7 @@ function consultaDias() {
             {
                 type: "POST",
                 data: dataString,
-                url: './fragmentos/getDias.php',
+                url: '/fragmentos/getDias.php',
                 success: function (data) {
                     var json_obj = JSON.parse(data);
                     var div = document.getElementById("divMostrarTablaDiasPendientes");
@@ -225,7 +225,7 @@ function actualizarCalendario() {
             {
                 type: "POST",
                 data: dataString,
-                url: './fragmentos/getCalendario.php',
+                url: '/fragmentos/getCalendario.php',
                 success: function (data) {
                     var json_obj = JSON.parse(data);
 
@@ -245,6 +245,133 @@ function actualizarCalendario() {
         );
     } else {
         return null;
+    }
+}
+
+function actualizarCalendarioAdmin() {
+    var dni = document.getElementById('inputDNI').value;
+    var tipoLicencia = document.getElementById('selectMotivoPeticion').value;
+    var dataString = 'dni=' + dni + "&tipoLicencia=" + tipoLicencia + "&admin=1";
+
+    if (dni != "") {
+        $.ajax(
+            {
+                type: "POST",
+                data: dataString,
+                url: '/fragmentos/getCalendario.php',
+                success: function (data) {
+                    var json_obj = JSON.parse(data);
+
+                    /* Vaciamos el calendario actual para volver a iniciarlo. */
+                    Calendario = [];
+
+                    for (index = 0; index < json_obj.length; index++) {
+                        Calendario.push([json_obj[index]["Fecha"], json_obj[index]["Activo"], json_obj[index]["Color"]]);
+                    }
+
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al cargar el calendario.");
+                    return null;
+                }
+            }
+        );
+    } else {
+        return null;
+    }
+}
+
+
+function recogerDatosFormularioAdmin() {
+    /* Recogemos el DNI */
+    var dni = document.getElementById('inputDNI').value;
+
+    /* Recogemos la Fecha de Inicio y la Fecha de Fin */
+    var fechaIni = new Date($('#inputFecha2').data('daterangepicker').startDate);
+    var fechaFin = new Date($('#inputFecha2').data('daterangepicker').endDate);
+
+    /* Ajuste de hora */
+    fechaIni.setHours(fechaIni.getHours() + 1);
+
+    /* Ajuste de Fechas si es horario de verano */
+    if (moment(fechaIni).isDST()) {
+        fechaIni.setHours(fechaIni.getHours() + 1);
+    }
+
+    if (moment(fechaFin).isDST()) {
+        fechaFin.setHours(fechaFin.getHours() + 1);
+    }
+
+    /*
+    fechaIni = fechaIni.format('YYYYMMDD');
+    fechaFin = fechaFin.format('YYYYMMDD');
+    */
+
+    /* Conversion a SQL Server Date */
+    fechaIni = fechaIni.toISOString().slice(0, 19);
+    fechaFin = fechaFin.toISOString().slice(0, 19);
+
+    /* Recogemos el tipo de Licenia */
+    var tipoLicencia = document.getElementById('selectMotivoPeticion').value;
+
+    /* Preparamos los datos */
+    var dataString = 'dni=' + dni + "&fechaIni=" + fechaIni + "&fechaFin=" + fechaFin + "&tipoLicencia=" + tipoLicencia;
+
+    console.log("Fecha Inicial -> " + fechaIni);
+    console.log("Fecha Final -> " + fechaFin);
+
+    if (dni != "") {
+        $.ajax(
+            {
+                type: "POST",
+                data: dataString,
+                url: '/fragmentos/insertarPeticionAdmin.php',
+                success: function (data) {
+                    /* Recogemos las variables que usaremos para mostrar por pantalla */
+
+                    try {
+
+                        var json_obj = JSON.parse(data);
+                        var valor = json_obj[0]["id"];
+                        var mensaje = json_obj[0]["mensaje"];
+
+                    } catch (e) {
+                        alert(data);
+                        console.log("Ha ocurrido un error: " + e);
+                    }
+
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("buttonFin");
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    document.getElementById('textoModal').innerHTML = mensaje + ".";
+
+                    // When the user clicks on the button, open the modal
+                    modal.style.display = "block";
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+                    /* Actualizamos el calendario después de hacer la nueva inserción. */
+                    actualizarCalendario();
+                },
+                error: function () {
+                    alert("Ha ocurrido un error la realizar la petición, vuelva a intentarlo más tarde.");
+                }
+            }
+        )
     }
 }
 
@@ -291,7 +418,7 @@ function recogerDatosFormulario() {
             {
                 type: "POST",
                 data: dataString,
-                url: './fragmentos/insertarPeticion.php',
+                url: '/fragmentos/insertarPeticion.php',
                 success: function (data) {
                     /* Recogemos las variables que usaremos para mostrar por pantalla */
 

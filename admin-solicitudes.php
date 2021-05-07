@@ -5,7 +5,7 @@ include './fragmentos/cabecera.php';
 ?>
 
 <head>
-    <title>Solicitud de Licencias - ADMIN - EMTUSA Huelva</title>
+    <title>Solicitud de Licencias - EMTUSA Huelva</title>
 </head>
 
 <body>
@@ -69,7 +69,7 @@ include './fragmentos/cabecera.php';
                     <div class="card-body">
                         <div class="form-group">
                             <label>Seleccione el motivo de la petición</label>
-                            <select id="selectMotivoPeticion" onchange="mostrarTextoUnidadTiempo(); consultaDias(); actualizarCalendario();" class="form-control">
+                            <select id="selectMotivoPeticion" onchange="mostrarTextoUnidadTiempo(); consultaDias(); actualizarCalendarioAdmin();" class="form-control">
                                 <option value="0">Seleccione motivo</option>
                                 <?php
                                 /* Necesario incluir el fichero de conexion a la BBDD */
@@ -159,7 +159,7 @@ include './fragmentos/cabecera.php';
                 </div>
             </div>
             <div id="divBotonEnviar" class="row-sm-12 text-center">
-                <button type="button" class="btn btn-warning botonEnviar botonOculto" id="buttonFin" onclick="recogerDatosFormulario()">Enviar petición</button>
+                <button type="button" class="btn btn-warning botonEnviar botonOculto" id="buttonFin" onclick="recogerDatosFormularioAdmin()">Enviar petición</button>
             </div>
             <div id="myModal" class="modal">
                 <!-- Mensaje de aviso -->
